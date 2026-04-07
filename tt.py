@@ -14,14 +14,15 @@ file_to_correct = st.file_uploader("📥 Fichier à corriger", type=["xlsx"])
 # -----------------------
 # Fonction de correction
 # -----------------------
-def corriger_mot(mot):
-    mot_clean = mot.lower()
+def corriger_module(module, reference_list):
+    module_clean = str(module).lower()
+
     suggestions = difflib.get_close_matches(
-            mot_clean,
-            dictionnaire,
-            n=1,
-            cutoff=0.7
-        )
+        module_clean,
+        reference_list,
+        n=1,
+        cutoff=0.6
+    )
 
     if suggestions:
         return suggestions[0]
