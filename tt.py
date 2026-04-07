@@ -15,7 +15,7 @@ file_to_correct = st.file_uploader("📥 Fichier à corriger", type=["xlsx"])
 # Fonction de correction
 # -----------------------
 def corriger_mot(mot):
-    mot_clean = mot.capitalize()
+    mot_clean = mot.lower()
     suggestions = difflib.get_close_matches(
             mot_clean,
             dictionnaire,
